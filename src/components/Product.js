@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 // scss 
 import Styles from "../assets/styles/components styles/product.module.scss";
 // helper function 
@@ -14,7 +15,7 @@ const Product = ({ eachProductData }) => {
 
   return (
     <>
-      <div className={`${Styles.col} col`} >
+      <div className="col" >
         <div className={Styles.productCard}>
           <img src={image} alt={id} className={Styles.productImage} />
           <div className={Styles.content}>
@@ -23,6 +24,7 @@ const Product = ({ eachProductData }) => {
             <p className={Styles.category}>{category}</p>
             <p className={Styles.description}>{shortener5(description)}</p>
             <h5 className={Styles.price}>{price} $</h5>
+            <Link to="/productDetail">More Detail ...</Link>
           </div>
         </div>
       </div>
