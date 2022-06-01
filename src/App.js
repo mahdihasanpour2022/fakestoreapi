@@ -1,26 +1,21 @@
-import React, { useEffect, useCallback } from 'react';
-import { getData } from "./data/getData";
+import React, { useEffect } from 'react';
+import fetchData from './redux/products/productsAC';
+import { Provider } from 'react-redux';
+import Store from "./redux/Store";
+// components 
+import Products from "./components/Products";
 
 const App = () => {
 
-
-  const fetchData = useCallback(async () => {
-    try {
-      const data = await getData();
-      console.log(data)
-    } catch (error) {
-      console.log(error.message)
-    }
-  }, [])
-
   useEffect(() => {
     fetchData()
-  }, [fetchData])
+  }, [])
 
   return (
     <>
-      app
-
+      <Provider store={Store} >
+        <Products />
+      </Provider>
     </>
   );
 };
