@@ -1,4 +1,7 @@
+// data 
 import { getData } from "../../data/getData";
+// localStorage 
+import { products_LC } from "../../LC/localStorage";
 
 
 const productsLoading_AC = () => {
@@ -17,8 +20,9 @@ const fetchData = () => {
     dispatch(productsLoading_AC(true))
     try {
       const data = await getData();
-      console.log(data)
-
+      //prodicts save in local 
+      products_LC(data.products)
+      // dispatch 
       dispatch(productsLoading_AC(false))
       dispatch(productsFetched_AC(data))
       dispatch(productsErrors_AC(null))
