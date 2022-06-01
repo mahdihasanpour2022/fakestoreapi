@@ -1,8 +1,27 @@
 @import "../common_styles/variables";
+@import "../common_styles/mixins";
 
 .navbar {
-
   width: 100%;
   height: 10vh;
   background-color: $black;
+  @include flex(flex-start, center);
+
+  ul {
+    @include ziro_space;
+    @include flex(flex-start, center);
+    padding: 0 1.5rem;
+
+    li {
+      margin-right: 1rem;
+
+      .navlink {
+        color: $white ;
+      }
+
+      .active {
+        color: orange;
+      }
+    }
+  }
 }
