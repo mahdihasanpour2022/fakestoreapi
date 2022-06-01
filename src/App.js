@@ -7,12 +7,16 @@ import {Routes , Route , Navigate} from "react-router-dom";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import NotFound from "./components/NotFound";
+import Navbar from "./components/Navbar";
+
+
 const App = () => {
 
 
   return (
     <>
       <Provider store={Store} >
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<Products />}/>
