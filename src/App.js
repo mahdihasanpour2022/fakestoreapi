@@ -6,7 +6,7 @@ import {Routes , Route , Navigate} from "react-router-dom";
 // components 
 import Home from "./components/Home";
 import Products from "./components/Products";
-
+import NotFound from "./components/NotFound";
 const App = () => {
 
 
@@ -16,6 +16,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<Products />}/>
+          <Route path="/notfound" element={<NotFound />}/>
+          <Route path="/*" element={<Navigate to="/notfound" />}/>
         </Routes>
       </Provider>
     </>
