@@ -16,12 +16,13 @@ const productsErrors_AC = (message) => {
 
 
 const fetchData = () => {
+  
   return async (dispatch) => {
     dispatch(productsLoading_AC(true))
     try {
       const data = await getData();
-      //prodicts save in local 
-      products_LC(data.products)
+      // prodicts save in local 
+      products_LC(data)
       // dispatch 
       dispatch(productsLoading_AC(false))
       dispatch(productsFetched_AC(data))

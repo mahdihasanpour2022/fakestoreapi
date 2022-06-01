@@ -1,0 +1,11 @@
+@mixin flex($jc , $ai) {
+  display: flex;
+  justify-content: $jc ;
+  align-items: $ai ;
+  @content;
+}
+
+@mixin ziro_space {
+  margin: 0;
+  padding: 0;
+}
