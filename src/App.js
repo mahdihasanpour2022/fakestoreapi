@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import ProuductsRouter from "./components/ProuductsRouter";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
+import Jewelery from "./components/Jewelery";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products/*" element={<ProuductsRouter />}/>
+        <Route path="jewelery" element={<Jewelery />} />
           <Route path="/notfound" element={<NotFound />}/>
           <Route path="/*" element={<Navigate to="/notfound" />}/>
         </Routes>
