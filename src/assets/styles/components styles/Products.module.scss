@@ -24,6 +24,15 @@ border-radius: 5px;
     p{
       @include ziro_space;
     }
+    .filterBTN{
+      border: none;
+      border-radius: 5px;
+      background-color: transparent;
+      transition: color 0.25s ease;
+      &:hover{
+        color: skyblue;
+      }
+    }
   }
 }
 .products {
