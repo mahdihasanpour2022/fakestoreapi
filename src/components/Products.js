@@ -14,26 +14,27 @@ const Products = () => {
   const dispatch = useDispatch();
   const { loading, products, error } = useSelector(state => state.productsState)
 
+  // click on button result in filterd product and show only products that have this category   
   const filterCategoryHandler = (e) => {
     setFilterCategory(products.filter(item => item.category === e.target.name))
     setSearch([])
   }
+  // find all of the category kind in all the products 
   const findCategories = () => {
     const c1 = products.map(item => item.category);
     const c2 = new Set(c1);
     return [...c2]
   }
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch])
-
+  // write in input and filtered product that their category have this leeter  
   const searchProduct = e => {
     setSearch(products.filter(item => item.category.includes(e.target.value)))
   }
 
-  console.log(filterCategory)
-  console.log(search)
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch])
+
 
   return (
     <>
@@ -53,9 +54,7 @@ const Products = () => {
 
             {!!products.length &&
               findCategories().map(item =>
-                <div key={item} className={Styles.category} >
-                  <button className={Styles.filterBTN} name={item} onClick={(e) => filterCategoryHandler(e)} >{item}</button>
-                </div>
+                  <button className={Styles.filterBTN} name={item} onClick={(e) => filterCategoryHandler(e)} key={item}>{item}</button>
               )
             }
 
@@ -64,15 +63,15 @@ const Products = () => {
         {/* show product  */}
         <div className={`${Styles.products} row m-0 g-3`}>
           {!!products.length &&
-           
+
             !!search.length ?
             search.map(item => <Product key={item.id} eachProductData={item} />)
-             :
+            :
             !!filterCategory.length ?
               filterCategory.map(item => <Product key={item.id} eachProductData={item} />)
-          :
-            products.map(item => <Product key={item.id} eachProductData={item} />)
-            }
+              :
+              products.map(item => <Product key={item.id} eachProductData={item} />)
+          }
         </div>
       </div>
     </>
