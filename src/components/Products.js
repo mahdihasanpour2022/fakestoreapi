@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-// action creator 
-import fetchData from '../redux/products/productsAC';
+import React, {  useState } from 'react';
+import { useSelector } from "react-redux";
 // components 
 import Product from "./Product";
 // scss 
@@ -11,7 +9,6 @@ const Products = () => {
 
   const [filterCategory, setFilterCategory] = useState([])
   const [search, setSearch] = useState([])
-  const dispatch = useDispatch();
   const { loading, products, error } = useSelector(state => state.productsState)
 
   // click on button result in filterd product and show only products that have this category   
@@ -31,10 +28,7 @@ const Products = () => {
     setSearch(products.filter(item => item.category.includes(e.target.value)))
   }
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch])
-
+  
 
   return (
     <>
@@ -54,7 +48,7 @@ const Products = () => {
 
             {!!products.length &&
               findCategories().map(item =>
-                  <button className={Styles.filterBTN} name={item} onClick={(e) => filterCategoryHandler(e)} key={item}>{item}</button>
+                <button className={Styles.filterBTN} name={item} onClick={(e) => filterCategoryHandler(e)} key={item}>{item}</button>
               )
             }
 

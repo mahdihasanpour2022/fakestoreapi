@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate, useMatch } from "react-router-dom";
+// import { useNavigate, useMatch } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // scss 
 import Styles from "../assets/styles/components styles/product.module.scss";
 // helper function 
@@ -7,7 +8,7 @@ import { shortener5, shortener2 } from "../helper_function/helperFunction";
 
 function Product({ eachProductData }) {
 
-  const path = useMatch("/products").pattern.path;
+  // const path = useMatch("/products").pattern.path;
   const navigate = useNavigate();
 
   // destructuring each product data
@@ -15,7 +16,8 @@ function Product({ eachProductData }) {
 
   const goToProductDetail = () => {
     // navigate(`/products/productDetail/${id}` , {replace:true})
-    navigate(`${path}/productDetail/${id}?category=${category}`);
+    // navigate(`${path}/productDetail/${id}?category=${category}`);
+    navigate(`/products/productDetail/${id}?category=${category}`);
   };
 
   return (
