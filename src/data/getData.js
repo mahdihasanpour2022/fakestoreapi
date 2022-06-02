@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// https://fakestoreapi.com/
 
 // export const getData = async () => {
 //   const response = await axios.get(`https://fakestoreapi.com/products`);

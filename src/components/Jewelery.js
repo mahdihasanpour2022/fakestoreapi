@@ -17,7 +17,7 @@ const Jewelery = () => {
     <>
       {!!loading && <p>loading jewelary...</p>}
       {!!error && <p>{error}</p>}
-      <div className="container">
+      <div className="container mt-3">
         <div className="row">
           <div className={Styles.jewelary} >
             {!!jewelery.length && jewelery.map(item => <Product key={item.id} eachProductData={item} />)}
