@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from "react-redux";
 // components 
 import Product from "./Product";
@@ -28,7 +28,7 @@ const Products = () => {
     setSearch(products.filter(item => item.category.includes(e.target.value)))
   }
 
-  
+
 
   return (
     <>
@@ -45,7 +45,6 @@ const Products = () => {
         {/* category filter  */}
         <div className="row">
           <div className={Styles.categories} >
-
             {!!products.length &&
               findCategories().map(item =>
                 <button className={Styles.filterBTN} name={item} onClick={(e) => filterCategoryHandler(e)} key={item}>{item}</button>
