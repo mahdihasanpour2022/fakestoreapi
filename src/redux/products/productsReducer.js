@@ -1,10 +1,10 @@
 const initialProductsState = {
   loading: false,
-  products: localStorage.getItem("products")?JSON.parse(localStorage.getItem("products")):[] ,
+  products: localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : []  ,
   error: null,
 }
 const productsReducer = (state = initialProductsState, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case "PRODUCTS_LOADING":
       return {...state , loading :action.payload};
     case "PRODUCTS_FETCHED":

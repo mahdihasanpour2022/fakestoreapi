@@ -5,7 +5,7 @@ import {Routes , Route , Navigate} from "react-router-dom";
 
 // components 
 import Home from "./components/Home";
-import Products from "./components/Products";
+import ProuductsRouter from "./components/ProuductsRouter";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 
@@ -19,7 +19,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/products" element={<Products />}/>
+          <Route path="/products/*" element={<ProuductsRouter />}/>
           <Route path="/notfound" element={<NotFound />}/>
           <Route path="/*" element={<Navigate to="/notfound" />}/>
         </Routes>
